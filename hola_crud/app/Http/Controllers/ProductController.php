@@ -29,12 +29,12 @@ class ProductController extends Controller
         $p->description = $r->description;
         $p->price = $r->price;
         $p->save();
-        return redirect()->route('product.index');
+        return redirect()->route('products.index');
     }
 
     public function edit($id) {
         $product = Product::find($id);
-        return view('product.form', array('product' => $product));
+        return view('products.form', array('product' => $product));
     }
 
     public function update($id, Request $r) {
@@ -43,13 +43,13 @@ class ProductController extends Controller
         $p->description = $r->description;
         $p->price = $r->price;
         $p->save();
-        return redirect()->route('product.index');
+        return redirect()->route('products.index');
     }
 
     public function destroy($id) {
         $p = Product::find($id);
         $p->delete();
-        return redirect()->route('product.index');
+        return redirect()->route('products.index');
     }
 
 }
